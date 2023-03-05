@@ -13,7 +13,7 @@ public class outlinetest : MonoBehaviour, IInteractable
     }
     public void Interaction()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("interacting with " + name);
     }
 
     public void ShowTip()
@@ -21,15 +21,4 @@ public class outlinetest : MonoBehaviour, IInteractable
         throw new System.NotImplementedException();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

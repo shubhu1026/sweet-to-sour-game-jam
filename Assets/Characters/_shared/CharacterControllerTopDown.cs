@@ -30,18 +30,5 @@ public class CharacterControllerTopDown : MonoBehaviour
             transform.localScale = new Vector3(xDirection, 1, 1);
         }
     }
-    //indication of selected objectl => move it to another GO in player and his own collider
-    //collider in main player will be for walking collision
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.TryGetComponent<IInteractable>(out IInteractable interactable))
-            {
-                interactable.Indicate(true);
-            }
-    }
-    private void OnTriggerExit2D(Collider2D other) {
-        if(other.TryGetComponent<IInteractable>(out IInteractable interactable))
-            {
-                interactable.Indicate(false);
-            }
-    }
+    
 }
