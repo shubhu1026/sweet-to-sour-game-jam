@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91146bd7f0360d4418cbac22d7aa3b73, type: 3}
+  m_Name: DaisyCharData
+  m_EditorClassIdentifier: 
+  body: {fileID: 385117215, guid: 9264c7ec206a3164ab1331c7aa9b1f77, type: 3}
+  foot: {fileID: -1625289939, guid: 9264c7ec206a3164ab1331c7aa9b1f77, type: 3}
+  hair: {fileID: 1618483849, guid: 9264c7ec206a3164ab1331c7aa9b1f77, type: 3}
+  hand: {fileID: 1615788202, guid: 9264c7ec206a3164ab1331c7aa9b1f77, type: 3}
+  head: {fileID: -1326017904, guid: 9264c7ec206a3164ab1331c7aa9b1f77, type: 3}
+  steps: []

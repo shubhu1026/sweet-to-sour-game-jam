@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91146bd7f0360d4418cbac22d7aa3b73, type: 3}
+  m_Name: AnaCharData
+  m_EditorClassIdentifier: 
+  body: {fileID: 1496868083, guid: 4f596558dc6dd5c4eb195706dc417670, type: 3}
+  foot: {fileID: -1431967253, guid: 4f596558dc6dd5c4eb195706dc417670, type: 3}
+  hair: {fileID: 1429317018, guid: 4f596558dc6dd5c4eb195706dc417670, type: 3}
+  hand: {fileID: 1564043848, guid: 4f596558dc6dd5c4eb195706dc417670, type: 3}
+  head: {fileID: -278216791, guid: 4f596558dc6dd5c4eb195706dc417670, type: 3}
+  steps: []
