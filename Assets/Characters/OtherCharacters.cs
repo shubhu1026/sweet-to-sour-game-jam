@@ -14,7 +14,7 @@ public class OtherCharacters : MonoBehaviour, IInteractable
         
     }
 
-    public void Interaction()
+    public ItemSO Interaction()
     {
         throw new System.NotImplementedException();
     }

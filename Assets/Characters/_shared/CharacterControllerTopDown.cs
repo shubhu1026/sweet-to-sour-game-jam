@@ -5,7 +5,7 @@ public interface IInteractable
 {
 
     public void ShowTip();
-    public void Interaction();
+    public ItemSO Interaction();
     public void Indicate(bool indicate);
 }
 public class CharacterControllerTopDown : MonoBehaviour

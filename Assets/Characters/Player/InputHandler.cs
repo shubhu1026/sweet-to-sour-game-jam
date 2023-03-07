@@ -13,7 +13,11 @@ public class InputHandler : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.F))
         {
             if(interactionHandler == null) return;
-            interactionHandler.GetInteract().Interaction();
+            interactionHandler.Use();
+        }
+        if(Input.GetKeyDown(KeyCode.Tab))
+        {
+            Inventory.instance.NextItem();
         }
     }
 }

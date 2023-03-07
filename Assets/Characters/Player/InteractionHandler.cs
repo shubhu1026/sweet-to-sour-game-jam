@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InteractionHandler : MonoBehaviour
 {
+    
     IInteractable interaction;
     //indication of selected object
     private void OnTriggerEnter2D(Collider2D other) {
@@ -18,8 +19,14 @@ public class InteractionHandler : MonoBehaviour
         {
             interaction = interactable;
             interactable.Indicate(false);
+            interaction = null;
         }
     }
+    public void Use(){
+        if(interaction == null) return;
+        var v = interaction.Interaction();
+        
+    } 
     public IInteractable GetInteract()
     {
         return interaction;
