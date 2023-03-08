@@ -4,23 +4,23 @@ using UnityEngine;
 using UnityEngine.UI;
 public class InventoryItem : MonoBehaviour
 {
-    [SerializeField] Image image;
+    [SerializeField] Image _image;
     
-    ItemSO item;
+    ItemSO _item;
 
     public void Init(ItemSO itemSO)
     {
-        item = itemSO;
-        image.sprite = item.image;
+        _item = itemSO;
+        _image.sprite = _item.Image;
     }
 
     public ItemSO GetItemSO()
     {
-        return item;
+        return _item;
     }
-    
+
     public void SetSelected(bool isActive)
     {
-        image.color = isActive ? Color.white : Color.gray;
+        _image.color = isActive ? Color.white : Color.gray;
     }
 }

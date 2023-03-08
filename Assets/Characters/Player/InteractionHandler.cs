@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class InteractionHandler : MonoBehaviour
 {
-    IInteractable interaction;
+    IInteractable _interaction;
     //indication of selected object
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.TryGetComponent<IInteractable>(out IInteractable interactable))
         {
-            interaction = interactable;
+            _interaction = interactable;
             interactable.Indicate(true);
         }
     }
@@ -18,19 +18,19 @@ public class InteractionHandler : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other) {
         if(other.TryGetComponent<IInteractable>(out IInteractable interactable))
         {
-            interaction = interactable;
+            _interaction = interactable;
             interactable.Indicate(false);
-            interaction = null;
+            _interaction = null;
         }
     }
 
     public void Use(){
-        if(interaction == null) return;
-        var v = interaction.Interaction();
+        if(_interaction == null) return;
+        var v = _interaction.Interaction();
     } 
 
     public IInteractable GetInteract()
     {
-        return interaction;
+        return _interaction;
     }
 }

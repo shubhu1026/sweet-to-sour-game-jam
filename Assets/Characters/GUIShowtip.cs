@@ -4,18 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 public class GUIShowtip : MonoBehaviour
 {
-    public static GUIShowtip instance;
+    public static GUIShowtip Instance;
     
     private void Awake() 
     {
-        if(instance == null)
+        if(Instance == null)
         {
-            instance = this;
+            Instance = this;
             return;
         }
         Destroy(gameObject);
     }
-
+    
     public void ShowTip(Vector3 position)
     {
 

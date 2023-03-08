@@ -4,53 +4,53 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public static Inventory instance;
+    public static Inventory Instance;
 
-    List<InventoryItem> inventoryItems;
-    [SerializeField] GameObject itemInventoryPrefab;
-    [SerializeField] ItemSO hand;
-    int index;
+    List<InventoryItem> _inventoryItems;
+    [SerializeField] GameObject _itemInventoryPrefab;
+    [SerializeField] ItemSO _hand;
+    int _index;
 
     private void Awake() 
     {
-        if(instance != null)
+        if(Instance != null)
         {
             Destroy(gameObject);
             return;
         }
 
-        instance = this;
+        Instance = this;
         DontDestroyOnLoad(gameObject);
-        inventoryItems = new();
+        _inventoryItems = new();
 
         for (int i = transform.childCount - 1; i >= 0 ; i--)
         {
             Destroy(transform.GetChild(i).gameObject);
         }
 
-        AddItem(hand);
-        inventoryItems[0].SetSelected(true);
+        AddItemToInventory(_hand);
+        _inventoryItems[0].SetSelected(true);
     }
 
-    public void AddItem(ItemSO itemInventory)
+    public void AddItemToInventory(ItemSO item)
     {
-        var v = Instantiate(itemInventoryPrefab, transform);
-        InventoryItem item = v.GetComponent<InventoryItem>();
-        item.Init(itemInventory);
-        inventoryItems.Add(item);
+        var v = Instantiate(_itemInventoryPrefab, transform);
+        InventoryItem inventoryItem = v.GetComponent<InventoryItem>();
+        inventoryItem.Init(item);
+        _inventoryItems.Add(inventoryItem);
     }
 
-    public bool RemoveInventory(ItemSO itemInventory)
+    public bool RemoveItemFromInventory(ItemSO item)
     {   
-        foreach (InventoryItem inventoryItem in inventoryItems)
+        foreach (InventoryItem inventoryItem in _inventoryItems)
         {
-            if(inventoryItem.GetItemSO().itemName == itemInventory.itemName)
+            if(inventoryItem.GetItemSO().ItemName == item.ItemName)
             {
-                if(itemInventory.itemName == "hand") return true;
-                inventoryItems.Remove(inventoryItem);
+                if(item.ItemName == "hand") return true;
+                _inventoryItems.Remove(inventoryItem);
                 Destroy(inventoryItem.gameObject);
-                index = 0;
-                inventoryItems[index].SetSelected(true);
+                _index = 0;
+                _inventoryItems[_index].SetSelected(true);
                 return true;
             }
         }
@@ -59,17 +59,17 @@ public class Inventory : MonoBehaviour
 
     public void NextItem()
     {        
-        index = ++index < inventoryItems.Count ? index : 0;
+        _index = ++_index < _inventoryItems.Count ? _index : 0;
 
-        foreach (var item in inventoryItems)
+        foreach (var item in _inventoryItems)
         {
             item.SetSelected(false);
         }
-        inventoryItems[index].SetSelected(true);
+        _inventoryItems[_index].SetSelected(true);
     }
     
     public ItemSO GetSelectedItem()
     {
-        return inventoryItems[index].GetItemSO();
+        return _inventoryItems[_index].GetItemSO();
     }
 }

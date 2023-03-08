@@ -4,46 +4,46 @@ using UnityEngine;
 
 public class outlinetest : MonoBehaviour, IInteractable
 {
-    [SerializeField] Material defaultMat;
-    [SerializeField] Material outlineMat;
-    [SerializeField] ItemSO requestedItem;
-    [SerializeField] ItemSO obtainedItem;
-    Coroutine returnMat;
-    public bool usable = false;
+    [SerializeField] Material _defaultMat;
+    [SerializeField] Material _outlineMat;
+    [SerializeField] ItemSO _requestedItem;
+    [SerializeField] ItemSO _obtainedItem;
+
+    Coroutine _returnMat;
+    public bool Usable = false;
     
     public void Indicate(bool indicate)
     {
-        GetComponent<SpriteRenderer>().material = indicate ? outlineMat : defaultMat;        
+        GetComponent<SpriteRenderer>().material = indicate ? _outlineMat : _defaultMat;        
     }
     
     public ItemSO Interaction()
     {
-        ItemSO usedItem = Inventory.instance.GetSelectedItem();
+        ItemSO usedItem = Inventory.Instance.GetSelectedItem();
         ItemSO returnedItem = null;
+
         //wrong item selected
-        if(requestedItem != Inventory.instance.GetSelectedItem()){
+        if(_requestedItem != Inventory.Instance.GetSelectedItem()){
             Debug.Log("WRONG item was used / say something like: what i sould do, genius?");
             return returnedItem;
         }
-        Inventory.instance.RemoveInventory(usedItem);
+        Inventory.Instance.RemoveItemFromInventory(usedItem);
+
         //there is an item to collect
-        if(obtainedItem != null)
+        if(_obtainedItem != null)
         {
-            
-            Debug.Log("obtain " + obtainedItem.itemName);
-            returnedItem = obtainedItem;
-            obtainedItem = null;
-            Inventory.instance.AddItem(returnedItem);
+            Debug.Log("obtain " + _obtainedItem.ItemName);
+            returnedItem = _obtainedItem;
+            _obtainedItem = null;
+            Inventory.Instance.AddItemToInventory(returnedItem);
             return returnedItem;
         }
         Debug.Log("end of interaction");
         return returnedItem;
-
     }
 
     public void ShowTip()
     {
         throw new System.NotImplementedException();
     }
-
 }

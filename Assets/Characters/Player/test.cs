@@ -5,22 +5,22 @@ using UnityEngine;
 
 public class test : MonoBehaviour
 {
-    [SerializeField] CharacterVisualSO[] charactersData;
-    [SerializeField] BodyPartsController bodyPartsController;
+    [SerializeField] CharacterVisualSO[] _charactersData;
+    [SerializeField] BodyPartsController _bodyPartsController;
 
-    int index;
+    int _index;
 
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
             GetNextIndex();
-            bodyPartsController.SetCharacterVisual(charactersData[index]);
+            _bodyPartsController.SetCharacterVisual(_charactersData[_index]);
         }
     }
 
     private void GetNextIndex()
     {
-        index = ++index < charactersData.Length ? index : 0;
+        _index = ++_index < _charactersData.Length ? _index : 0;
     }
 }

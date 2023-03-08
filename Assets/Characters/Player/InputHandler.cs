@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
-    [SerializeField] private CharacterControllerTopDown characterController;
-    [SerializeField] private InteractionHandler interactionHandler;
+    [SerializeField] private CharacterControllerTopDown _characterController;
+    [SerializeField] private InteractionHandler _interactionHandler;
 
     void Update()
     {
-        characterController.SetVector(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
-        
+        _characterController.SetVector(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
+
         if(Input.GetKeyDown(KeyCode.F))
         {
-            if(interactionHandler == null) return;
-            interactionHandler.Use();
+            if(_interactionHandler == null) return;
+            _interactionHandler.Use();
         }
 
         if(Input.GetKeyDown(KeyCode.Tab))
         {
-            Inventory.instance.NextItem();
+            Inventory.Instance.NextItem();
         }
     }
 }

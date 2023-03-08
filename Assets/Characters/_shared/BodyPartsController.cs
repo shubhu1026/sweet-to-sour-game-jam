@@ -4,31 +4,31 @@ using UnityEngine;
 
 public class BodyPartsController : MonoBehaviour
 {
-    [SerializeField] SpriteRenderer headSpriteRenderer;
-    [SerializeField] SpriteRenderer hairSpriteRenderer;
-    [SerializeField] SpriteRenderer torsoSpriteRenderer;
-    [SerializeField] SpriteRenderer handRSpriteRenderer;
-    [SerializeField] SpriteRenderer handLSpriteRenderer;
-    [SerializeField] SpriteRenderer footRSpriteRenderer;
-    [SerializeField] SpriteRenderer footLSpriteRenderer;
+    [SerializeField] SpriteRenderer _headSpriteRenderer;
+    [SerializeField] SpriteRenderer _hairSpriteRenderer;
+    [SerializeField] SpriteRenderer _torsoSpriteRenderer;
+    [SerializeField] SpriteRenderer _handRSpriteRenderer;
+    [SerializeField] SpriteRenderer _handLSpriteRenderer;
+    [SerializeField] SpriteRenderer _footRSpriteRenderer;
+    [SerializeField] SpriteRenderer _footLSpriteRenderer;
 
-    [SerializeField] CharacterVisualSO characterVisualData;
+    [SerializeField] CharacterVisualSO _characterVisualData;
 
     private void Start()
     {
-        SetCharacterVisual(characterVisualData);
+        SetCharacterVisual(_characterVisualData);
     }
-    
+
     public void SetCharacterVisual(CharacterVisualSO characterVisualData)
     {
-        this.characterVisualData = characterVisualData;
+        _characterVisualData = characterVisualData;
 
-        headSpriteRenderer.sprite = characterVisualData.head;
-        hairSpriteRenderer.sprite = characterVisualData.hair;
-        torsoSpriteRenderer.sprite = characterVisualData.body;
-        handRSpriteRenderer.sprite = characterVisualData.hand;
-        handLSpriteRenderer.sprite = characterVisualData.hand;
-        footRSpriteRenderer.sprite = characterVisualData.foot;
-        footLSpriteRenderer.sprite = characterVisualData.foot;
+        _headSpriteRenderer.sprite = characterVisualData.Head;
+        _hairSpriteRenderer.sprite = characterVisualData.Hair;
+        _torsoSpriteRenderer.sprite = characterVisualData.Body;
+        _handRSpriteRenderer.sprite = characterVisualData.Hand;
+        _handLSpriteRenderer.sprite = characterVisualData.Hand;
+        _footRSpriteRenderer.sprite = characterVisualData.Foot;
+        _footLSpriteRenderer.sprite = characterVisualData.Foot;
     }
 }
