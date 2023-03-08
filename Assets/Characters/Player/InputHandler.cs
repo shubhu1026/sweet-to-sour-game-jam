@@ -10,11 +10,13 @@ public class InputHandler : MonoBehaviour
     void Update()
     {
         characterController.SetVector(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
+        
         if(Input.GetKeyDown(KeyCode.F))
         {
             if(interactionHandler == null) return;
             interactionHandler.Use();
         }
+
         if(Input.GetKeyDown(KeyCode.Tab))
         {
             Inventory.instance.NextItem();

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class InteractionHandler : MonoBehaviour
 {
-    
     IInteractable interaction;
     //indication of selected object
+
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.TryGetComponent<IInteractable>(out IInteractable interactable))
         {
@@ -14,6 +14,7 @@ public class InteractionHandler : MonoBehaviour
             interactable.Indicate(true);
         }
     }
+
     private void OnTriggerExit2D(Collider2D other) {
         if(other.TryGetComponent<IInteractable>(out IInteractable interactable))
         {
@@ -22,11 +23,12 @@ public class InteractionHandler : MonoBehaviour
             interaction = null;
         }
     }
+
     public void Use(){
         if(interaction == null) return;
         var v = interaction.Interaction();
-        
     } 
+
     public IInteractable GetInteract()
     {
         return interaction;

@@ -6,7 +6,8 @@ public class GUIShowtip : MonoBehaviour
 {
     public static GUIShowtip instance;
     
-    private void Awake() {
+    private void Awake() 
+    {
         if(instance == null)
         {
             instance = this;
@@ -14,6 +15,7 @@ public class GUIShowtip : MonoBehaviour
         }
         Destroy(gameObject);
     }
+
     public void ShowTip(Vector3 position)
     {
 

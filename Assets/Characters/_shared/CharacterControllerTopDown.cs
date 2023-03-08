@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public interface IInteractable
 {
-
     public void ShowTip();
     public ItemSO Interaction();
     public void Indicate(bool indicate);
 }
+
 public class CharacterControllerTopDown : MonoBehaviour
 {
     
@@ -15,11 +16,13 @@ public class CharacterControllerTopDown : MonoBehaviour
     private Rigidbody2D rb2d;
     private Animator animator;
     private float xDirection = 1f;//-1f is left
+
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
+
     public void SetVector(Vector2 inputVector)
     {
         rb2d.velocity = inputVector * speed;
@@ -30,5 +33,4 @@ public class CharacterControllerTopDown : MonoBehaviour
             transform.localScale = new Vector3(xDirection, 1, 1);
         }
     }
-    
 }

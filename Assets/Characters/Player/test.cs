@@ -7,7 +7,9 @@ public class test : MonoBehaviour
 {
     [SerializeField] CharacterVisualSO[] charactersData;
     [SerializeField] BodyPartsController bodyPartsController;
+
     int index;
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space))
@@ -20,6 +22,5 @@ public class test : MonoBehaviour
     private void GetNextIndex()
     {
         index = ++index < charactersData.Length ? index : 0;
-        
     }
 }

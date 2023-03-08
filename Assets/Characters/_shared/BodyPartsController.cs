@@ -18,6 +18,7 @@ public class BodyPartsController : MonoBehaviour
     {
         SetCharacterVisual(characterVisualData);
     }
+    
     public void SetCharacterVisual(CharacterVisualSO characterVisualData)
     {
         this.characterVisualData = characterVisualData;
