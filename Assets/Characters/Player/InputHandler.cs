@@ -19,7 +19,7 @@ public class InputHandler : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Tab))
         {
-            Inventory.instance.NextItem();
+            Inventory.Instance.NextItem();
         }
     }
 }

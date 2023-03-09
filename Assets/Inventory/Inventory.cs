@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public static Inventory instance;
+    public static Inventory Instance;
 
     List<InventoryItem> inventoryItems;
     [SerializeField] GameObject itemInventoryPrefab;
@@ -13,13 +13,13 @@ public class Inventory : MonoBehaviour
 
     private void Awake() 
     {
-        if(instance != null)
+        if(Instance != null)
         {
             Destroy(gameObject);
             return;
         }
 
-        instance = this;
+        Instance = this;
         DontDestroyOnLoad(gameObject);
         inventoryItems = new();
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class CharacterControllerTopDown : MonoBehaviour
     private Rigidbody2D rb2d;
     private Animator animator;
     private float xDirection = 1f;//-1f is left
+    public Action<int> onDirectionChanged;
 
     private void Awake()
     {
@@ -29,7 +31,13 @@ public class CharacterControllerTopDown : MonoBehaviour
         animator.SetBool("isMoving", rb2d.velocity != Vector2.zero);
         if(inputVector.x != 0)
         {
-            xDirection = Mathf.Sign(inputVector.x);
+            if(xDirection == Mathf.Sign(inputVector.x)) return;
+            else
+            {
+                xDirection = Mathf.Sign(inputVector.x);
+                onDirectionChanged?.Invoke(Mathf.RoundToInt(xDirection));
+                
+            }
             transform.localScale = new Vector3(xDirection, 1, 1);
         }
     }
