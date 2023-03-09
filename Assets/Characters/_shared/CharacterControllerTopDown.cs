@@ -5,7 +5,7 @@ using UnityEngine;
 public interface IInteractable
 {
     public void ShowTip();
-    public ItemSO Interaction();
+    public void Interaction();
     public void Indicate(bool indicate);
 }
 

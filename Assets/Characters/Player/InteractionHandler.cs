@@ -26,7 +26,7 @@ public class InteractionHandler : MonoBehaviour
 
     public void Use(){
         if(interaction == null) return;
-        var v = interaction.Interaction();
+        interaction.Interaction();
     } 
 
     public IInteractable GetInteract()
